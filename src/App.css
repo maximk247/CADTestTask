@@ -1,0 +1,68 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-form {
+  padding: 20px;
+}
+
+.box-form input {
+  width: 200px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.dark-theme {
+  color: white;
+  background-color: #1b2b34;
+}
+
+.dark-theme .box {
+  color: white;
+  background-color: #000;
+}
+
+.dark-theme .box-form input {
+  color: white;
+  background-color: #333;
+  border: 1px solid #444;
+}
+
+.dark-theme .box-form label {
+  color: white !important;
+}
+
+.light-theme {
+  color: black;
+  background-color: #f0f0f0;
+}
+
+.light-theme .box {
+  color: black;
+  background-color: #fff;
+}
+
+.light-theme .box-form input {
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.light-theme .box-form label {
+  color: black !important;
+}
