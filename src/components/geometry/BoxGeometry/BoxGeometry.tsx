@@ -1,17 +1,8 @@
 import React, { useMemo, useRef } from 'react'
 import * as THREE from 'three'
+import { BoxGeometryProps } from '../../../interfaces/props/BoxGeometry.interface'
 
-type BoxGeometryProps = {
-  vertices: number[] // вершины куба, полученные с сервера
-  indices: number[] // индексы треугольников для рендеринга
-  castShadow?: boolean
-}
-
-export const BoxGeometry: React.FC<BoxGeometryProps> = ({
-  vertices,
-  indices,
-  castShadow,
-}) => {
+export const BoxGeometry: React.FC<BoxGeometryProps> = ({ vertices, indices }) => {
   const meshRef = useRef<THREE.Mesh>(null!)
 
   const geometry = useMemo(() => {
@@ -19,10 +10,7 @@ export const BoxGeometry: React.FC<BoxGeometryProps> = ({
 
     // передаем позиции вершин
     const verticesFloatArray = new Float32Array(vertices)
-    bufferGeometry.setAttribute(
-      'position',
-      new THREE.BufferAttribute(verticesFloatArray, 3),
-    )
+    bufferGeometry.setAttribute('position', new THREE.BufferAttribute(verticesFloatArray, 3))
 
     // передаем индексы для создания треугольников
     const indexArray = new Uint16Array(indices)
@@ -35,12 +23,7 @@ export const BoxGeometry: React.FC<BoxGeometryProps> = ({
   }, [vertices, indices])
 
   return (
-    <mesh
-      ref={meshRef}
-      geometry={geometry}
-      castShadow={castShadow}
-      receiveShadow
-    >
+    <mesh ref={meshRef} geometry={geometry} receiveShadow>
       <meshStandardMaterial color='orange' flatShading={true} />
 
       {/* Wireframe для отображения треугольников (убедиться, что 3D объект состоит из треугольников)

@@ -1,0 +1,19 @@
+/* stylelint-disable selector-class-pattern */
+.box-form {
+  padding: 20px;
+  color: inherit;
+}
+
+.box-form__item {
+  color: inherit;
+}
+
+.box-form__item input {
+  width: 200px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.box-form__item label {
+  color: inherit !important;
+}

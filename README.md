@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# 3D Box
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Инструкция запуска
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/maximk247/CADTestTask.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd CADTestTask
 ```
+
+```bash
+npm i
+```
+
+```bash
+npm run start
+```
+
+```bash
+npm run dev
+```
+
+
+## Описание
+
+**3D Box** — это веб-приложение, которое позволяет пользователям создавать и настраивать 3D модели коробок с возможностью изменения размеров в реальном времени. Приложение построено на React и Three.js для визуализации и манипуляции с 3D объектами. Пользователи могут ввести длину, ширину и высоту коробки и получить обновленную 3D модель. Также имеется возможность переключаться между тёмной и светлой темами интерфейса.
+
+## Функциональность
+
+- Динамическое создание 3D моделей коробок.
+- Визуализация изменений в реальном времени при вводе новых параметров.
+- Управление камерой с возможностью вращения и изменения масштаба модели.
+- Переключение между светлой и тёмной темами.
+- Взаимодействие с серверной частью на Express.js для расчета вершин и индексов модели.
+
+## Технологии
+
+- **React** — библиотека для создания пользовательских интерфейсов.
+- **Three.js** — для работы с 3D графикой в браузере.
+- **React Three Fiber** — обертка для интеграции Three.js с React.
+- **Ant Design** — библиотека компонентов пользовательского интерфейса.
+- **Express.js** — для обработки серверных запросов и API.
+
+## Структура проекта
+
+- **components/** — содержит React-компоненты для отображения формы, переключателя тем, и 3D бокса.
+- **api/** — серверная часть для обработки запросов, таких как расчеты вершин и индексов..
+- **src/** — основная часть исходного кода приложения.
+- **utils/** — вспомогательные функции для параметров приложения.
+- **interfaces/** — определение интерфейсов для компонентов.
+- **enums/** — определения перечисляемых свойств.
+
+## Как использовать
+
+1. Введите значения для длины, ширины и высоты коробки в поля формы.
+2. Нажмите кнопку для обновления 3D модели на экране.
+3. Переключите тему с тёмной на светлую с помощью переключателя темы.
+4. Управляйте 3D моделью с помощью мыши — вращайте и приближайте вид.
+
+## API
+
+Приложение включает серверную часть на Express.js, которая обрабатывает запросы на расчет 3D геометрии. Клиент отправляет запрос с параметрами коробки, а сервер возвращает данные о вершинах и индексации для 3D модели.
